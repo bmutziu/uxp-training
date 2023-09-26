@@ -38,9 +38,10 @@ spec:
         spec:
           forProvider:
             region: eu-west-1
-            #
-            # The InternetGateway requires a VPC. 
-            # How do we refer to the VPC defined above? 
+            # Since we are in the same Composition with only 1 VPC
+            # we can use matchControllerRef
+            vpcIdSelector:
+              matchControllerRef: true
       name: gateway
       patches:
         - type: PatchSet

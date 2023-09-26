@@ -31,7 +31,9 @@ spec:
           forProvider:
             region: us-west-2
             cidrBlock: 192.168.0.0/16
-# Add missing fields to configure DNS for this VPC   
+# Add missing fields to configure DNS for this VPC
+            enableDnsSupport: true
+            enableDnsHostnames: true
             tags:
               Owner: Platform Team
               Name: platformref-vpc

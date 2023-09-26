@@ -9,14 +9,14 @@ spec:
     kind: XCluster
   resources:
     - base:
-        apiVersion: # Fill in the custom platform API Group
-        kind: # Fill in the XNetwork kind
+        apiVersion: aws.platformref.upbound.io/v1alpha1
+        kind: XNetwork
       patches:
         - fromFieldPath: spec.id
           toFieldPath: spec.id
         - type: ToCompositeFieldPath
-          fromFieldPath: # Fill in with XNetwork status path for subnetIds
-          toFieldPath: # Fill in with XCluster status path to keep subnetIds
+          fromFieldPath: status.subnetIds
+          toFieldPath: status.subnetIds
           policy:
             fromFieldPath: Required
         - type: ToCompositeFieldPath
@@ -26,8 +26,8 @@ spec:
             fromFieldPath: Required
       name: compositeNetworkEKS
     - base:
-        apiVersion: # Fill in the custom platform API Group
-        kind: # Fill in the Composite EKS kind
+        apiVersion: aws.platformref.upbound.io/v1alpha1
+        kind: XEKS
       connectionDetails:
         - fromConnectionSecretKey: kubeconfig
       name: compositeClusterEKS
@@ -48,8 +48,8 @@ spec:
           toFieldPath: spec.parameters.nodes.count
         - fromFieldPath: spec.parameters.nodes.size
           toFieldPath: spec.parameters.nodes.size
-        - fromFieldPath: # Fill in the XCluster status path that keeps the subnetIds
-          toFieldPath: # Fill in the XEKS spec for subnetIds
+        - fromFieldPath: status.subnetIds
+          toFieldPath: spec.parameters.subnetIds
           policy:
             fromFieldPath: Required
         - fromFieldPath: status.securityGroupIds
@@ -57,8 +57,8 @@ spec:
           policy:
             fromFieldPath: Required
     - base:
-        apiVersion: # Fill in the custom platform API Group
-        kind: # Fill in the Composite Services Kind
+        apiVersion: aws.platformref.upbound.io/v1alpha1
+        kind: XServices
       name: compositeClusterServices
       patches:
         - fromFieldPath: spec.id

@@ -70,8 +70,8 @@ spec:
           # AWS subnet Id and return it to status. 
           # Note that each subnet ID goes to a specific array index
         - type: ToCompositeFieldPath
-          fromFieldPath: ## Fill me in with the external name
-          toFieldPath: ## patch to array index 0 of the status.SubnetIds
+          fromFieldPath: metadata.annotations[crossplane.io/external-name]
+          toFieldPath: status.subnetIds[0]
     - base:
         apiVersion: ec2.aws.upbound.io/v1beta1
         kind: Subnet

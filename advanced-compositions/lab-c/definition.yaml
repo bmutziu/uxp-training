@@ -30,5 +30,7 @@ spec:
                   type: array
                   items:
                     type: string
-                # add a field to store an array of subnetIds
-                # each subnetId is a string
+                subnetIds:
+                  type: array
+                  items:
+                    type: string
