@@ -26,11 +26,11 @@ spec:
             status:
               type: object
               properties:
-                securityGroupIds:
+                subnetIds:
                   type: array
                   items:
                     type: string
-                subnetIds:
+                securityGroupIds:
                   type: array
                   items:
                     type: string
