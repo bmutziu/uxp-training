@@ -60,12 +60,12 @@ spec:
           toFieldPath: spec.forProvider.passwordSecretRef.name
         - fromFieldPath: spec.parameters.passwordSecretRef.key
           toFieldPath: spec.forProvider.passwordSecretRef.key
-## Labs starts here
       connectionDetails:
         - fromFieldPath: "status.atProvider.endpoint"
           name: endpoint
         - fromFieldPath: "status.atProvider.address"
-          name: ## Fill me in
+          name: host
         - fromFieldPath: "spec.forProvider.username"
-          name: ## Fill me in
-          ## Finally, add the "attribute.password" field to the "password" key
+          name: username
+        - fromConnectionSecretKey: "attribute.password"
+          name: password

@@ -1,8 +1,3 @@
-# Update this XRD to publish the following connectionSecretKeys:
-# - endpoint
-# - host
-# - username
-# - password
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
@@ -11,6 +6,11 @@ spec:
   claimNames:
     kind: SQLInstance
     plural: sqlinstances
+  connectionSecretKeys:
+    - username
+    - password
+    - host
+    - endpoint
   group: aws.platformref.upbound.io
   names:
     kind: XSQLInstance
